@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://20301050.github.io/hdjD-menagemant/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://20301050.github.io/hdjD-menagemant/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://20301050.github.io/hdjD-menagemant/en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://20301050.github.io/hdjD-menagemant/"/>
+    <lastmod>2026-10-31</lastmod><priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://20301050.github.io/hdjD-menagemant/en.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://20301050.github.io/hdjD-menagemant/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://20301050.github.io/hdjD-menagemant/en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://20301050.github.io/hdjD-menagemant/"/>
+    <lastmod>2026-10-31</lastmod><priority>0.8</priority>
+  </url>
+</urlset>
