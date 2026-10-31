@@ -1304,6 +1304,20 @@ p,li{text-wrap:pretty}
 @media (min-width:1241px) and (max-width:1440px){.nav a,.nav-btn{padding:0 .45rem!important;font-size:.86rem!important}.bar{gap:.6rem!important}.head-cart{margin-left:2px}}
 @media (max-width:900px){.hero .hero-content{padding-top:calc(67.5vw + 115px)!important}}
 .contact-grid>*{min-width:0}.info-card dd,.info-card a{overflow-wrap:anywhere}
+
+/* Vidéo du camion à la place de la photo, avec le même dégradé */
+.hero-media.has-video::before{display:none}
+.hero-media video.hero-truck{opacity:1;inset:auto;height:auto;max-width:none}
+@media (min-width:1300px){.hero-media video.hero-truck{width:58vw!important}}
+.hero-media video.hero-truck{position:absolute;right:0;bottom:0;width:64vw;aspect-ratio:16/9;max-height:100%;object-fit:cover;object-position:right center;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.6) 10%,#000 22%),linear-gradient(180deg,transparent 0%,#000 18%);-webkit-mask-composite:source-in;
+  mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.6) 10%,#000 22%),linear-gradient(180deg,transparent 0%,#000 18%);mask-composite:intersect}
+@media (max-width:900px){
+  .hero-media video.hero-truck{right:auto;left:-9%;top:72px;bottom:auto;width:118%;max-height:none;object-position:center;
+    -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 72%,transparent 100%);mask-image:linear-gradient(180deg,#000 0%,#000 72%,transparent 100%);-webkit-mask-composite:source-over;mask-composite:add}
+}
+.video-toggle{z-index:6}
+@media (min-width:901px){.hero .video-toggle{bottom:auto;top:calc(50% - 22px);right:16px}}
 </style>
 </head>
 
@@ -2025,6 +2039,17 @@ p,li{text-wrap:pretty}
 </script>
 
 
+<script>
+  // Vidéo du camion : pause / lecture (WCAG 2.2.2), arrêt si l'utilisateur limite les animations
+  (function () {
+    var v = document.querySelector('.hero-truck'), b = document.querySelector('.video-toggle');
+    if (!v || !b) return;
+    function set(p) { b.setAttribute('aria-pressed', p ? 'true' : 'false'); b.setAttribute('aria-label', p ? 'Lire la vidéo' : 'Mettre la vidéo en pause'); b.querySelector('.vt-ico').textContent = p ? '▶' : '❚❚'; }
+    b.addEventListener('click', function () { if (v.paused) { v.play().catch(function(){}); set(false); } else { v.pause(); set(true); } });
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) { v.removeAttribute('autoplay'); v.pause(); set(true); }
+    else { v.muted = true; v.play().catch(function(){}); }
+  })();
+</script>
 <script>try{var v=localStorage.getItem('hdj-vol-send'),q=document.getElementById('quote-volume');if(v&&q){q.value=v;localStorage.removeItem('hdj-vol-send');}}catch(e){}</script>
 </body>
 </html>
