@@ -57,24 +57,25 @@
     el.setAttribute('aria-label', en ? 'Welcome' : 'Bienvenue');
     el.innerHTML =
       '<div class="aw-in">' +
-      '<p class="aw-kick">' + (en ? 'Offered by your agency' : 'Offert par votre agence') + ' <strong>' + safe + '</strong></p>' +
-      '<h2>' + (en ? 'Congratulations on your new home! 🎉' : 'Félicitations pour votre nouveau logement ! 🎉') + '</h2>' +
-      '<p>' + (en ? 'To help you get ready, here is our moving guide and a free checklist. Need a hand? HDJ Déménagements moves you anywhere in France and Europe.'
-                 : 'Pour bien préparer votre déménagement, voici notre guide et une check-list gratuite. Besoin d\'aide ? HDJ Déménagements vous déménage partout en France et en Europe.') + '</p>' +
+      '<h2>' + (en ? 'Thank you for your trust! 🎉' : 'Merci pour votre confiance ! 🎉') + '</h2>' +
+      '<p class="aw-txt">' + (en ? 'Wishing you a stress-free move, here is our moving guide and checklist.'
+                 : 'En vous souhaitant un déménagement serein, voici notre guide et notre check-list.') + '</p>' +
+      '<p class="aw-from">' + (en ? 'Offered by your agency ' : 'Offert par votre agence ') + '<strong>' + safe + '</strong></p>' +
       '<div class="aw-btns"><a class="aw-b1" href="#guide-checklist">' + (en ? '⬇ Free checklist' : '⬇ Ma check-list gratuite') + '</a>' +
       '<a class="aw-b2" href="' + root + (en ? 'en/contact/' : 'contact/') + '">' + (en ? 'Free quote' : 'Devis gratuit') + '</a>' +
       '<a class="aw-b3" href="tel:+33651299910">06 51 29 99 10</a></div></div>';
     var css = document.createElement('style');
     css.textContent =
-      '#agence-welcome{background:linear-gradient(135deg,#193E65,#0B1F3A);color:#fff;padding:clamp(1.6rem,4vw,2.6rem) 1.25rem;border-bottom:4px solid #D62828}' +
+      '#agence-welcome{background:linear-gradient(135deg,#193E65,#0B1F3A);color:#fff;padding:clamp(1.6rem,4vw,2.6rem) 1.25rem}' +
       '#agence-welcome .aw-in{max-width:900px;margin:0 auto;text-align:center}' +
-      '#agence-welcome .aw-kick{display:inline-block;background:#D62828;border-radius:999px;padding:.3rem 1rem;font-size:.9rem;margin:0 0 .8rem}' +
+      '#agence-welcome .aw-from{margin-top:.7rem!important;font-size:.9rem;color:#BFD3EC!important}' +
       '#agence-welcome h2{color:#fff;font-size:clamp(1.5rem,3.4vw,2.3rem);line-height:1.15;margin:0 0 .6rem}' +
       '#agence-welcome p{color:#E3EBF7;margin:0 auto;max-width:60ch}' +
       '#agence-welcome .aw-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem;margin-top:1.2rem}' +
       '#agence-welcome .aw-btns a{display:inline-flex;align-items:center;min-height:48px;padding:0 1.3rem;border-radius:999px;font-weight:700;text-decoration:none}' +
-      '#agence-welcome .aw-b1{background:#D62828;color:#fff}#agence-welcome .aw-b2{background:#fff;color:#193E65}' +
-      '#agence-welcome .aw-b3{border:2px solid #fff;color:#fff}';
+      '#agence-welcome .aw-b1{background:#fff;color:#193E65}#agence-welcome .aw-b2{border:2px solid #fff;color:#fff}' +
+      '#agence-welcome .aw-b3{border:2px solid #fff;color:#fff}' +
+      '@media (max-width:720px){#agence-welcome{padding-top:3.2rem}}';
     document.head.appendChild(css);
     page.insertBefore(el, page.firstChild);
   }
