@@ -1859,8 +1859,9 @@ p,li{text-wrap:pretty}
       const r=e.target.closest('[data-rm]'); if(r){delete cart[r.dataset.rm];save();render(true);}
     });
     $('cart-order').addEventListener('click',()=>{
-      $('co-sum').textContent=ids().map(id=>cart[id]+' × '+info(id).name).join(', ')+' — '+eur(total());
-      show('cart-co'); const f=$('cart-co').querySelector('input[name=nom]'); if(!('ontouchstart' in window)) f.focus({preventScroll:true}); $('cart').scrollIntoView({block:'nearest',behavior:'smooth'});
+      // Ouverture prochaine : pas de commande en ligne tant que l'entreprise n'est pas immatriculée
+      let m=$('co-soon'); if(!m){m=document.createElement('p');m.id='co-soon';m.setAttribute('role','status');m.style.cssText='color:#fff;font-weight:600;margin:.8rem 0 0;line-height:1.5';m.innerHTML='Commande en ligne bientôt disponible (ouverture prochaine). Pour réserver votre matériel, appelez le <a href="tel:+33651299910" style="color:#fff">06 51 29 99 10</a>.';$('cart-order').insertAdjacentElement('afterend',m);}
+      m.hidden=false;
     });
     $('co-back').addEventListener('click',()=>show('cart-view'));
     const co=$('cart-co');
@@ -2001,8 +2002,21 @@ p,li{text-wrap:pretty}
       if (!check(1)) { go(1); return; }
       if (!check(3)) return;
       var btn = f.querySelector('[type=submit]'); btn.disabled = true; btn.textContent = 'Envoi…';
-      // À brancher sur l'envoi réel (Formspree, e-mail…) avant la mise en ligne
-      setTimeout(function () {
+      // Envoi réel des demandes de devis par e-mail (FormSubmit)
+      var HDJ_EMAIL = 'heddadjfettah@gmail.com';
+      var data = {}; Array.prototype.forEach.call(f.elements, function (el) {
+        if (!el.name || el.type === 'submit' || el.type === 'button') return;
+        if ((el.type === 'radio' || el.type === 'checkbox') && !el.checked) return;
+        data[el.name] = data[el.name] ? data[el.name] + ', ' + el.value : el.value;
+      });
+      data._subject = 'Nouvelle demande de devis – hdj-demenagements.fr'; data._template = 'table'; data._captcha = 'false';
+      var fail = function () { btn.disabled = false; btn.textContent = 'Recevoir mon devis gratuit'; status.textContent = "L'envoi n'a pas fonctionné. Appelez-nous au 06 51 29 99 10."; alertFail(); };
+      var alertFail = function () { var p = document.getElementById('q-send-err'); if (!p) { p = document.createElement('p'); p.id = 'q-send-err'; p.className = 'q-err'; p.setAttribute('role', 'alert'); btn.parentNode.insertAdjacentElement('afterend', p); } p.textContent = "L'envoi n'a pas fonctionné. Appelez-nous au 06 51 29 99 10."; p.hidden = false; };
+      if (!HDJ_EMAIL) { fail(); return; }
+      fetch('https://formsubmit.co/ajax/' + HDJ_EMAIL, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) })
+        .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+        .then(function () {
+        var pe = document.getElementById('q-send-err'); if (pe) pe.hidden = true;
         document.getElementById('q-done-nom').textContent = f.elements.nom.value.split(' ')[0];
         document.getElementById('q-done-tel').textContent = f.elements.telephone.value;
         var E=f.elements, dt=E.date.value?new Date(E.date.value+'T12:00').toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'}):'À définir';
@@ -2014,7 +2028,7 @@ p,li{text-wrap:pretty}
         steps.forEach(function (st) { st.hidden = true; }); f.querySelector('.q-steps').hidden = true;
         done.hidden = false; done.focus({preventScroll:true}); done.scrollIntoView({block:'start',behavior:'smooth'}); status.textContent = 'Demande envoyée.';
         btn.disabled = false; btn.textContent = 'Recevoir mon devis gratuit';
-      }, 700);
+        }).catch(fail);
     });
     document.getElementById('q-again').addEventListener('click', function () {
       f.reset(); done.hidden = true; f.querySelector('.q-steps').hidden = false; go(1);
