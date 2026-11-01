@@ -1329,6 +1329,13 @@ p,li{text-wrap:pretty}
   .hero-media video.hero-truck{top:0!important}
   .hero .hero-content{padding-top:calc(67.5vw + 45px)!important}
 }
+/* Ordinateur : vidéo plein écran, sans dégradé bleu marine (mobile inchangé) */
+@media (min-width:901px){
+  .hero-media{background:#0B1F3A!important}
+  .hero-media video.hero-truck{left:0!important;right:0!important;top:0!important;bottom:0!important;width:100%!important;height:100%!important;object-fit:cover;object-position:center 75%!important;-webkit-mask-image:none!important;mask-image:none!important}
+  .hero::after{background:radial-gradient(ellipse 48% 60% at 22% 52%,rgba(0,0,0,.5) 0%,rgba(0,0,0,.25) 55%,rgba(0,0,0,0) 100%)!important}
+  .hero h1{text-shadow:0 2px 6px rgba(0,0,0,.75),0 6px 28px rgba(0,0,0,.6)!important}
+}
 </style>
 </head>
 
@@ -1432,7 +1439,7 @@ p,li{text-wrap:pretty}
 <!-- ============ HÉRO ============ -->
 <section class="hero on-dark" id="accueil">
   <div class="hero-media has-video" aria-hidden="true">
-    <video class="hero-truck" aria-label="Camion de déménagement HDJ sur la route" title="Camion de déménagement HDJ" autoplay muted loop playsinline preload="metadata" poster="images/hero-video-poster.webp"><source src="videos/hero-camion-hdj.mp4" type="video/mp4"></video>
+    <video class="hero-truck" aria-label="Camion de déménagement HDJ sur la route" title="Camion de déménagement HDJ" autoplay muted loop playsinline preload="metadata" poster="images/hero-video-poster-v2.webp"><source src="videos/hero-camion-hdj-v2.mp4" type="video/mp4"></video>
   </div>
 
   <div class="wrap">
