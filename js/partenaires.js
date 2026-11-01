@@ -24,6 +24,7 @@
     slug = slug.toLowerCase().replace(/[^a-z0-9-]/g, '').slice(0, 60);
     if (slug) store.set(slug);
   }
+  var fromLink = !!slug; // le bandeau ne s'affiche que si on arrive avec un lien d'agence
   slug = slug || store.get();
   if (!slug) return;
 
@@ -48,7 +49,7 @@
   // Bandeau de bienvenue sur la page Guide
   function banner() {
     var page = document.querySelector('[data-route="guide"]');
-    if (!page || document.getElementById('agence-welcome')) return;
+    if (!fromLink || !page || document.getElementById('agence-welcome')) return;
     var en = (document.documentElement.lang || '').indexOf('en') === 0;
     var safe = nom.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; });
     var root = location.pathname.indexOf('/en/') !== -1 ? '../../' : '../';
