@@ -73,7 +73,7 @@
       '#agence-welcome p{color:#E3EBF7;margin:0 auto;max-width:60ch}' +
       '#agence-welcome .aw-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem;margin-top:1.2rem}' +
       '#agence-welcome .aw-btns a{display:inline-flex;align-items:center;min-height:48px;padding:0 1.3rem;border-radius:999px;font-weight:700;text-decoration:none}' +
-      '#agence-welcome .aw-b1{background:#fff;color:#193E65}#agence-welcome .aw-b2{border:2px solid #fff;color:#fff}' +
+      '#agence-welcome .aw-b1{background:#D62828;color:#fff;box-shadow:0 8px 20px rgba(214,40,40,.35)}#agence-welcome .aw-b2{background:#fff;color:#193E65}' +
       '#agence-welcome .aw-b3{border:2px solid #fff;color:#fff}' +
       '@media (max-width:720px){#agence-welcome{padding-top:3.2rem}}';
     document.head.appendChild(css);
