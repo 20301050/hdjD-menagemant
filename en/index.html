@@ -1336,6 +1336,8 @@ p,li{text-wrap:pretty}
   .hero::after{background:radial-gradient(ellipse 48% 60% at 22% 52%,rgba(0,0,0,.5) 0%,rgba(0,0,0,.25) 55%,rgba(0,0,0,0) 100%)!important}
   .hero h1{text-shadow:0 2px 6px rgba(0,0,0,.75),0 6px 28px rgba(0,0,0,.6)!important}
 }
+/* Mobile : bande opaque sous la barre d'état, le site ne défile plus derrière */
+body::before{content:"";position:fixed;top:0;left:0;right:0;height:env(safe-area-inset-top,0px);background:#193E65;z-index:200;pointer-events:none}
 </style>
 </head>
 

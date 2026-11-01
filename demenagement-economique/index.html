@@ -1328,6 +1328,8 @@ p,li{text-wrap:pretty}
   .hero-media video.hero-truck{top:0!important}
   .hero .hero-content{padding-top:calc(67.5vw + 45px)!important}
 }
+/* Mobile : bande opaque sous la barre d'état, le site ne défile plus derrière */
+body::before{content:"";position:fixed;top:0;left:0;right:0;height:env(safe-area-inset-top,0px);background:#193E65;z-index:200;pointer-events:none}
 </style>
 </head>
 
