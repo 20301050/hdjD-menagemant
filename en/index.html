@@ -17,7 +17,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="apple-touch-icon" href="../images/favicon-hdj.png">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "MovingCompany", "name": "HDJ Déménagements France - Europe", "url": "https://hdj-demenagements.fr/en/", "description": "Removal company in Mitry-Mory (77): private and business moves across France and Europe. Lorry with driver, furniture lift, storage. Free quote.", "inLanguage": "en-GB", "logo": "https://hdj-demenagements.fr/images/logo-hdj.png", "image": "https://hdj-demenagements.fr/images/og-hdj.jpg", "telephone": "+33651299910", "email": "hdj.demenagemant@gmail.com", "address": {"@type": "PostalAddress", "postalCode": "77290", "addressLocality": "Mitry-Mory", "addressRegion": "Île-de-France", "addressCountry": "FR"}, "areaServed": ["Seine-et-Marne", "Île-de-France", "France", "Europe"], "priceRange": "€€", "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Removal services", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Private removals"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Business removals"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "20 m³ lorry hire with driver"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "30 m³ lorry hire with driver"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Furniture lift hire"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Storage"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Moving boxes and packing supplies"}}]}, "openingHours": "Mo-Su"}</script>
-<meta name="theme-color" content="#193E65">
+<meta name="theme-color" content="#D62828">
 <meta name="color-scheme" content="only light">
 <link rel="icon" type="image/png" sizes="48x48" href="../images/favicon-48.png">
 <meta name="description" content="Removal company in Mitry-Mory (77): private and business moves, France and Europe. Lorry with driver, furniture lift, storage. Free quote.">
@@ -1336,8 +1336,11 @@ p,li{text-wrap:pretty}
   .hero::after{background:radial-gradient(ellipse 48% 60% at 22% 52%,rgba(0,0,0,.5) 0%,rgba(0,0,0,.25) 55%,rgba(0,0,0,0) 100%)!important}
   .hero h1{text-shadow:0 2px 6px rgba(0,0,0,.75),0 6px 28px rgba(0,0,0,.6)!important}
 }
-/* Mobile : bande opaque sous la barre d'état, le site ne défile plus derrière */
-body::before{content:"";position:fixed;top:0;left:0;right:0;height:env(safe-area-inset-top,0px);background:#193E65;z-index:200;pointer-events:none}
+/* Barre rouge collée tout en haut avec le menu (mobile : remplit aussi la zone de l'heure) */
+:root{padding-top:0!important}
+.site-header{top:0!important}
+.soon-bar{padding-top:calc(.4rem + env(safe-area-inset-top,0px))!important}
+@media (max-width:480px){.soon-bar{padding-top:calc(.35rem + env(safe-area-inset-top,0px))!important}}
 </style>
 </head>
 
