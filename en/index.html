@@ -1348,8 +1348,13 @@ p,li{text-wrap:pretty}
   .hero .hero-content{padding-top:calc(112vw + 20px)!important}
 }
 @media (min-width:901px){
-  .hero{min-height:max(620px,min(56.25vw,calc(100svh - 113px)))!important}
-  .hero-media video.hero-truck{object-position:center center!important}
+  .hero-media{background:linear-gradient(90deg,#0B1F3A 0%,#173F70 100%)!important}
+  .hero-media video.hero-truck{left:auto!important;right:0!important;top:0!important;bottom:0!important;height:100%!important;width:auto!important;aspect-ratio:4/5!important;max-width:58vw!important;object-fit:cover!important;object-position:center!important;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 18%)!important;mask-image:linear-gradient(90deg,transparent 0%,#000 18%)!important}
+  .hero::after{background:none!important}
+  .hero-content{margin-left:0!important;text-align:left!important;max-width:min(560px,42vw)!important}
+  .hero h1{color:#fff!important}
+  .hero-actions{justify-content:flex-start!important}
 }
 </style>
 </head>
@@ -1454,7 +1459,7 @@ p,li{text-wrap:pretty}
 <!-- ============ HÉRO ============ -->
 <section class="hero on-dark" id="accueil">
   <div class="hero-media has-video" aria-hidden="true">
-    <video class="hero-truck" autoplay muted loop playsinline preload="metadata" poster="../images/hero-poster-v4.webp"><source src="../videos/hero-hdj-v3-mobile.mp4" type="video/mp4" media="(max-width: 900px)"><source src="../videos/hero-hdj-v4.mp4" type="video/mp4"></video>
+    <video class="hero-truck" autoplay muted loop playsinline preload="metadata" poster="../images/hero-poster-v3-mobile.webp"><source src="../videos/hero-hdj-v3-mobile.mp4" type="video/mp4"></video>
   </div>
 
   <div class="wrap">
