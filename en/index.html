@@ -1347,6 +1347,10 @@ p,li{text-wrap:pretty}
   .hero-media video.hero-truck{left:0!important;right:0!important;width:100%!important;aspect-ratio:4/5!important;height:auto!important;object-fit:cover!important;object-position:center!important}
   .hero .hero-content{padding-top:calc(112vw + 20px)!important}
 }
+@media (min-width:901px){
+  .hero{min-height:max(620px,min(56.25vw,calc(100svh - 113px)))!important}
+  .hero-media video.hero-truck{object-position:center center!important}
+}
 </style>
 </head>
 
@@ -1450,7 +1454,7 @@ p,li{text-wrap:pretty}
 <!-- ============ HÉRO ============ -->
 <section class="hero on-dark" id="accueil">
   <div class="hero-media has-video" aria-hidden="true">
-    <video class="hero-truck" autoplay muted loop playsinline preload="metadata" poster="../images/hero-video-poster-v2.webp"><source src="../videos/hero-hdj-v3-mobile.mp4" type="video/mp4" media="(max-width: 900px) and (orientation: portrait)"><source src="../videos/hero-camion-hdj-v2.mp4" type="video/mp4"></video>
+    <video class="hero-truck" autoplay muted loop playsinline preload="metadata" poster="../images/hero-poster-v5.webp"><source src="../videos/hero-hdj-v3-mobile.mp4" type="video/mp4" media="(max-width: 900px) and (orientation: portrait)"><source src="../videos/hero-hdj-v5.mp4" type="video/mp4"></video>
   </div>
 
   <div class="wrap">
