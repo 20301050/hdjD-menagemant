@@ -2079,9 +2079,9 @@ p,li{text-wrap:pretty}
 <script>(function(){var c=null;try{c=localStorage.getItem("hdj-consent");}catch(e){}if(c)return;
 var en=(document.documentElement.lang||"fr").slice(0,2)==="en",b=document.getElementById("hdj-cookies");if(!b)return;
 var pol=en?"/en/politique-confidentialite/":"/politique-confidentialite/";
-document.getElementById("hdj-ck-t").innerHTML=en?'We would like to measure visits to this site with Google Analytics (anonymous statistics). <a href="'+pol+'" style="color:#fff">Learn more</a>':'Nous souhaitons mesurer la fréquentation du site avec Google Analytics (statistiques anonymes). <a href="'+pol+'" style="color:#fff">En savoir plus</a>';
-document.getElementById("hdj-ck-no").textContent=en?"Decline":"Refuser";
-document.getElementById("hdj-ck-yes").textContent=en?"Accept":"Accepter";
+document.getElementById("hdj-ck-t").innerHTML=en?'<strong>🍪 Cookies</strong><br>This site uses audience measurement cookies (Google Analytics) to know how many people visit it. No advertising cookies. <a href="'+pol+'" style="color:#fff">Learn more</a>':'<strong>🍪 Cookies</strong><br>Ce site utilise des cookies de mesure d\'audience (Google Analytics) pour savoir combien de personnes le visitent. Aucun cookie publicitaire. <a href="'+pol+'" style="color:#fff">En savoir plus</a>';
+document.getElementById("hdj-ck-no").textContent=en?"Reject all":"Tout refuser";
+document.getElementById("hdj-ck-yes").textContent=en?"Accept cookies":"Accepter les cookies";
 function set(v){try{localStorage.setItem("hdj-consent",v);}catch(e){}b.style.display="none";if(v==="yes")window.hdjLoadGA&&hdjLoadGA();}
 document.getElementById("hdj-ck-no").onclick=function(){set("no");};
 document.getElementById("hdj-ck-yes").onclick=function(){set("yes");};
