@@ -1343,7 +1343,7 @@ p,li{text-wrap:pretty}
 .site-header{top:0!important}
 .soon-bar{padding-top:calc(.4rem + env(safe-area-inset-top,0px))!important}
 @media (max-width:480px){.soon-bar{padding-top:calc(.35rem + env(safe-area-inset-top,0px))!important}}
-@media (max-width:900px){
+@media (max-width:900px) and (orientation:portrait){
   .hero-media video.hero-truck{left:0!important;right:0!important;width:100%!important;aspect-ratio:4/5!important;height:auto!important;object-fit:cover!important;object-position:center!important}
   .hero .hero-content{padding-top:calc(112vw + 20px)!important}
 }
@@ -1450,7 +1450,7 @@ p,li{text-wrap:pretty}
 <!-- ============ HÉRO ============ -->
 <section class="hero on-dark" id="accueil">
   <div class="hero-media has-video" aria-hidden="true">
-    <video class="hero-truck" aria-label="Camion de déménagement HDJ sur la route" title="Camion de déménagement HDJ" autoplay muted loop playsinline preload="metadata" poster="images/hero-video-poster-v2.webp"><source src="videos/hero-hdj-v3-mobile.mp4" type="video/mp4" media="(max-width: 900px)"><source src="videos/hero-camion-hdj-v2.mp4" type="video/mp4"></video>
+    <video class="hero-truck" aria-label="Camion de déménagement HDJ sur la route" title="Camion de déménagement HDJ" autoplay muted loop playsinline preload="metadata" poster="images/hero-video-poster-v2.webp"><source src="videos/hero-hdj-v3-mobile.mp4" type="video/mp4" media="(max-width: 900px) and (orientation: portrait)"><source src="videos/hero-camion-hdj-v2.mp4" type="video/mp4"></video>
   </div>
 
   <div class="wrap">
@@ -2404,7 +2404,7 @@ p,li{text-wrap:pretty}
 <script>
   // Vidéo du camion : lecture en boucle (sauf si l'utilisateur a désactivé les animations)
   (function () {
-    var v = document.querySelector('.hero-truck'); if (!v) return; if (matchMedia('(max-width: 900px)').matches) { v.poster = 'images/hero-poster-v3-mobile.webp'; }
+    var v = document.querySelector('.hero-truck'); if (!v) return; if (matchMedia('(max-width: 900px) and (orientation: portrait)').matches) { v.poster = 'images/hero-poster-v3-mobile.webp'; }
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) { v.removeAttribute('autoplay'); v.pause(); }
     else { v.muted = true; v.play().catch(function(){}); ['click','touchstart','scroll'].forEach(function (e) { window.addEventListener(e, function () { v.play().catch(function(){}); }, { once: true, passive: true }); }); }
   })();
